@@ -17,8 +17,8 @@
   <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
   <script
     type="text/javascript">!function (o, c) { var n = c.documentElement, t = " w-mod-"; n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch") }(window, document);</script>
-  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
-  <link href="images/webclip.png" rel="apple-touch-icon"><!--  Please keep this css code to improve the font quality -->
+  <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <link href="images/favicon.ico" rel="apple-touch-icon"><!--  Please keep this css code to improve the font quality -->
   <style>
     * {
       -webkit-font-smoothing: antialiased;
@@ -131,14 +131,11 @@ a,
         /* Removes native scrollbar */
         .no-scrollbar {
           -ms-overflow-style: none;
-          /* IE 10+*/
           overflow: -moz-scrollbars-none;
-          /* Firefox*/
         }
 
         .no-scrollbar::-webkit-scrollbar {
           display: none;
-          /* Safari and Chrome*/
         }
 
         /* Adds inline flex display */
@@ -149,6 +146,203 @@ a,
         /* These classes are never overwritten */
         .hide {
           display: none !important;
+        }
+
+        /*=============== GOOGLE FONTS ===============*/
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+        /*=============== VARIABLES CSS ===============*/
+        :root {
+          /*========== Colors ==========*/
+          --hue: 240;
+          --first-color: hsl(var(--hue), 16%, 18%);
+          --first-color-alt: hsl(var(--hue), 16%, 12%);
+          --title-color: hsl(var(--hue), 8%, 15%);
+          --text-color: hsl(var(--hue), 8%, 35%);
+          --body-color: hsl(var(--hue), 100%, 99%);
+          --container-color: #FFF;
+
+          /*========== Font and typography ==========*/
+          --body-font: 'Poppins', sans-serif;
+          --big-font-size: 1.5rem;
+          --normal-font-size: .938rem;
+
+          /*========== z index ==========*/
+          --z-modal: 1000;
+        }
+
+        @media screen and (min-width: 968px) {
+          :root {
+            --big-font-size: 1.75rem;
+            --normal-font-size: 1rem;
+          }
+        }
+
+        /*=============== BASE ===============*/
+        * {
+          box-sizing: border-box;
+          padding: 0;
+          margin: 0;
+        }
+
+        body,
+        button {
+          font-family: var(--body-font);
+          font-size: var(--normal-font-size);
+        }
+
+        body {
+          background-color: var(--body-color);
+          color: var(--text-color);
+          position: relative;
+        }
+
+        button {
+          cursor: pointer;
+          border: none;
+          outline: none;
+        }
+
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+
+        /*=============== MODAL ===============*/
+        .container {
+          margin-left: 1rem;
+          margin-right: 1rem;
+        }
+
+        .modal {
+          display: grid;
+          place-items: center;
+        }
+
+        .modal__button {
+          display: inline-block;
+          background-color: #697CFD;
+          color: #FFF;
+          padding: 1rem 1.25rem;
+          border-radius: .5rem;
+          transition: .3s;
+        }
+
+        .modal__button:hover {
+          background-color: #697dfda2;
+        }
+
+        .modal__container {
+          position: fixed;
+          top: 0;
+          left: 0;
+          background-color: #697dfda2;
+          width: 100%;
+          height: 100%;
+          display: grid;
+          align-items: flex-end;
+          overflow: hidden;
+          transition: all .3s;
+          z-index: var(--z-modal);
+          visibility: hidden;
+          opacity: 0;
+
+          /*=== Effect 3 ===*/
+          perspective: 1000px;
+        }
+
+        .modal__content {
+          position: relative;
+          background-color: #191A1D;
+          text-align: center;
+          padding: 3rem 2rem 2rem;
+          border-radius: 1rem 1rem 0 0;
+          transition: all .3s;
+
+          /*=== Effect 1 ===*/
+          transform: translateY(10%);
+
+          /*=== Effect 2 ===*/
+          transform: scale(.5) translateY(10%);
+
+          /*=== Effect 3 ===*/
+          transform: rotateX(65deg) scale(.75) translateY(10%);
+          transform-origin: 50% 100%;
+        }
+
+        .modal__img {
+          width: 150px;
+          margin-bottom: .75rem;
+        }
+
+        .modal__close {
+          display: inline-flex;
+          background-color: var(--first-color);
+          border-radius: .25rem;
+          color: #FFF;
+          font-size: 1.5rem;
+          position: absolute;
+          top: 2rem;
+          right: 2rem;
+          cursor: pointer;
+        }
+
+        .modal__title {
+          font-size: var(--big-font-size);
+          color: var(--title-color);
+          font-weight: 600;
+          color: #FFF;
+        }
+
+        .modal__description {
+          margin-bottom: 1.5rem;
+          padding-left: 10%;
+          padding-right: 10%;
+          font-size: large;
+          color: #FFF;
+        }
+
+        .modal__button-width {
+          width: 90%;
+        }
+
+        .modal__button-link {
+          display: block;
+          margin: 1rem auto 0;
+          background-color: transparent;
+          color: #FFF;
+          font-weight: 500;
+        }
+
+        /* Show modal */
+        .show-modal {
+          visibility: visible;
+          opacity: 1;
+        }
+
+        .show-modal .modal__content {
+          /*=== Effect 1 ===*/
+          transform: translateY(0);
+
+          /*=== Effect 2 ===*/
+          /* transform: scale(1) translateY(0); */
+
+          /*=== Effect 3 ===*/
+          /* transform: rotateX(0) scale(1) translateY(0); */
+        }
+
+        /*=============== BREAKPOINTS ===============*/
+        /* For small devices */
+        @media screen and (min-width: 576px) {
+          .modal__content {
+            margin: auto;
+            width: 380px;
+            border-radius: 1.25rem;
+          }
+
+          .modal__img {
+            width: 170px;
+          }
         }
 
         @media screen and (max-width: 991px) {
@@ -257,8 +451,8 @@ a,
       fs-scrolldisable-element="smart-nav" data-easing="ease" data-collapse="medium"
       data-w-id="7f0ddedb-2379-69ab-a2ee-38ad5bb3c2e4" role="banner" data-duration="400" id="nav">
       <div class="navbar2_container">
-        <a href="#nav" class="navbar2_logo-link w-nav-brand"><img src="images/Logo.svg" loading="lazy" width="60" alt=""
-            class="navbar2_logo"></a>
+        <a href="#nav" class="navbar2_logo-link w-nav-brand"><img src="images/1stclass.svg" loading="lazy" width="60"
+            alt="" class="navbar2_logo"></a>
         <nav role="navigation" id="w-node-_7f0ddedb-2379-69ab-a2ee-38ad5bb3c2e8-64bf1861"
           class="navbar2_menu is-page-height-tablet w-nav-menu">
           <a href="#community" class="navbar2_link w-nav-link">Community</a>
@@ -271,19 +465,8 @@ a,
         </nav>
         <div id="w-node-_7f0ddedb-2379-69ab-a2ee-38ad5bb3c2fb-64bf1861" class="navbar2_button-wrapper">
           <div class="button-group">
-            <a href="#" class="button is-icon w-inline-block">
-              <div>Connect</div>
-              <div class="icon-embed-xsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-                  class="iconify iconify--iconoir" width="100%" height="100%" preserveaspectratio="xMidYMid meet"
-                  viewbox="0 0 24 24">
-                  <g fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M19 20H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2Z"></path>
-                    <path fill="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                      d="M16.5 14a.5.5 0 1 1 0-1a.5.5 0 0 1 0 1Z"></path>
-                    <path d="M18 7V5.603a2 2 0 0 0-2.515-1.932l-11 2.933A2 2 0 0 0 3 8.537V9"></path>
-                  </g>
-                </svg></div>
+            <a href="https://twitter.com/1stclasslabs/" target="_blank" class="button is-icon w-inline-block">
+              <div>Launch App</div>
             </a>
           </div>
           <div class="navbar2_menu-button w-nav-button">
@@ -306,10 +489,9 @@ a,
               <div class="w-layout-grid header1_component relative">
                 <div id="w-node-_0da25b69-f909-e7d0-bf84-4ed78ef9b9e0-64bf1861" class="header1_content overlapping">
                   <div class="margin-bottom margin-small">
-                    <h1><strong>Community Exclusive Content</strong></h1>
+                    <h1><strong>Social Education</strong></h1>
                   </div>
-                  <p class="text-size-large">Share videos and host discussions that only members of your community can
-                    access.</p>
+                  <p class="text-size-large">Host discussions and share videos with your community.</p>
                 </div>
                 <div id="w-node-_0da25b69-f909-e7d0-bf84-4ed78ef9b9ec-64bf1861" class="header1_image-wrapper relative">
                   <img src="images/sebastian-pandelache-v65vRZ97F9M-unsplash.jpg" loading="lazy"
@@ -336,9 +518,9 @@ a,
                   <div class="margin-bottom margin-small">
                     <h3><strong class="bold-text-3">Open &amp; Token-Gated Communities</strong></h3>
                   </div>
-                  <p class="text-size-medium">1st Class is the perfect platform for Content Creators and NFT Project
-                    Leaders to build community. Grow your network by sharing public videos anyone can watch or host live
-                    Stages and Talks that only your subscribers and NFT holders can access.</p>
+                  <p class="text-size-medium">1st Class is the best platform for educational content creators to build
+                    and engage with their community. Grow your network by sharing free videos and audio anyone can watch
+                    or host live Stages and Talks that only subscribed members can access.</p>
                 </div>
               </div>
             </div>
@@ -352,11 +534,11 @@ a,
               <div class="w-layout-grid layout3_component">
                 <div class="layout3_content">
                   <div class="margin-bottom margin-small">
-                    <h3 class="heading-13"><strong>Only The Best Content</strong></h3>
+                    <h3 class="heading-13"><strong>Only the Best Educators</strong></h3>
                   </div>
-                  <p class="text-size-medium">The 1st Class Creator Pass is a soulbound Non-Fungible Token that grants
-                    project founders and content creators access to a growing set of 1st Class Creator tools. Once your
-                    application is approved, you can mint your Creator Pass and start creating!</p>
+                  <p class="text-size-medium">The 1st Class Creator Pass is a soulbound Non-Fungible Token that gives
+                    content creators the ability to upload, start a community, and access to a growing set of creator
+                    tools. Once your application is approved, you can mint a Creator Pass and get started!</p>
                 </div>
                 <div class="layout3_image-wrapper"><img src="images/pexels-ivan-samkov-7676402.jpg" loading="lazy"
                     sizes="(max-width: 479px) 93vw, (max-width: 767px) 96vw, (max-width: 991px) 94vw, (max-width: 1439px) 54vw, 784px"
@@ -384,11 +566,52 @@ a,
                   <p class="text-size-medium">Show your favorite creator how much you appreciate their content by
                     subscribing to their community. In return, you can unlock premium content, direct access to the
                     creator, and other special benefits.</p>
-                  <div class="margin-top margin-medium">
-                    <div class="button-group">
-                      <a href="#" class="button w-button">View All Creators</a>
-                    </div>
-                  </div>
+
+                  <head>
+                    <meta charset="UTF-8" />
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+                    <!--=============== BOXICONS ===============-->
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+
+                    <!--=============== CSS ===============-->
+                    <link rel="stylesheet" href="assets/css/styles.css" />
+
+                    <title>Responsive Modal Popup</title>
+                  </head>
+
+                  <body>
+                    <section class="modal container">
+                      <button class="modal__button" id="open-modal">
+                        View All Creators
+                      </button>
+
+                      <div class="modal__container" id="modal-container">
+                        <div class="modal__content">
+                          <div class="modal__close close-modal" title="Close">
+                            <i class="bx bx-x"></i>
+                          </div>
+
+                          <img src="assets/img/star-trophy.png" alt="" class="modal__img" />
+
+                          <h1 class="modal__title">Coming soon!!</h1>
+                          <p class="modal__description">Follow us on Twitter for updates!</p>
+
+                          <a href="http://www.twitter.com/1stclasslabs/" target="_blank">
+                            <button class="modal__button modal__button-width">Follow</button>
+                          </a>
+
+                          <button class="modal__button-link close-modal">
+                            Back
+                          </button>
+                        </div>
+                      </div>
+                    </section>
+
+                    <!--=============== MAIN JS ===============-->
+
+                    <script src="js/main.js"></script>
+                  </body>
                 </div>
               </div>
             </div>
@@ -403,7 +626,7 @@ a,
                 <div class="text-align-center">
                   <div class="max-width-large align-center">
                     <div class="margin-bottom margin-small">
-                      <h2 class="heading">First Class Preview</h2>
+                      <h2 class="heading">1st Class Preview</h2>
                     </div>
                   </div>
                 </div>
@@ -458,6 +681,29 @@ a,
           </div>
         </div>
       </section>
+      <section id="content" class="section_content">
+        <div class="padding-global-3">
+          <div class="container-large">
+            <div class="padding-section-large">
+              <div class="w-layout-grid layout3_component">
+                <div class="layout12_content">
+                  <div class="layout12_item">
+                    <div class="margin-bottom margin-small">
+                      <h2 class="bold-text-3"><strong>Live &amp; On-Demand Content</strong></h2>
+                    </div>
+                    <p class="text-size-medium">Learn from industry leading entrepreneurs, educators, and commentators
+                      from anywhere, anytime.</p>
+                  </div>
+                </div>
+                <div class="layout12_image-wrapper"><img src="images/annie-spratt-QckxruozjRg-unsplash.jpg"
+                    loading="lazy" sizes="(max-width: 991px) 90vw, (max-width: 1439px) 55vw, 794.1875px"
+                    srcset="images/annie-spratt-QckxruozjRg-unsplash-p-500.jpg 500w, images/annie-spratt-QckxruozjRg-unsplash-p-800.jpg 800w, images/annie-spratt-QckxruozjRg-unsplash-p-1080.jpg 1080w, images/annie-spratt-QckxruozjRg-unsplash-p-1600.jpg 1600w, images/annie-spratt-QckxruozjRg-unsplash-p-2000.jpg 2000w, images/annie-spratt-QckxruozjRg-unsplash.jpg 2400w"
+                    alt="" class="image-6"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <section id="cta" class="section_cta">
         <div class="padding-global-3">
           <div class="container-large">
@@ -476,66 +722,11 @@ a,
                   </div>
                   <div class="margin-top margin-medium">
                     <div class="button-group is-center">
-                      <a href="https://form.jotform.com/dustinturska/firstclasscreatorapp"
+                      <a href="https://twitter.com/1stclasslabs/" target="_blank"
                         class="button is-alternate w-button">Apply Now</a>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="content" class="section_content">
-        <div class="padding-global-4">
-          <div class="container-large">
-            <div class="padding-section-large">
-              <div class="w-layout-grid layout12_component">
-                <div class="layout12_content">
-                  <div class="w-layout-grid layout12_item-list">
-                    <div class="layout12_item">
-                      <div class="margin-bottom margin-xsmall">
-                        <div class="icon-embed-medium-2 w-embed"><svg xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-                            class="iconify iconify--ph" width="100%" height="100%" preserveaspectratio="xMidYMid meet"
-                            viewbox="0 0 256 256">
-                            <path fill="currentColor"
-                              d="M208 40H48a24.1 24.1 0 0 0-24 24v112a24.1 24.1 0 0 0 24 24h160a24.1 24.1 0 0 0 24-24V64a24.1 24.1 0 0 0-24-24Zm8 136a8 8 0 0 1-8 8H48a8 8 0 0 1-8-8V64a8 8 0 0 1 8-8h160a8 8 0 0 1 8 8Zm-48 48a8 8 0 0 1-8 8H96a8 8 0 0 1 0-16h64a8 8 0 0 1 8 8Zm-3.6-110.7l-48-32a8.3 8.3 0 0 0-8.2-.4A8 8 0 0 0 104 88v64a8 8 0 0 0 4.2 7.1a8.5 8.5 0 0 0 3.8.9a8.4 8.4 0 0 0 4.4-1.3l48-32a8 8 0 0 0 0-13.4ZM120 137.1v-34.2l25.6 17.1Z">
-                            </path>
-                          </svg></div>
-                      </div>
-                      <div class="margin-bottom margin-xsmall">
-                        <h6 class="heading-11"><strong>Live &amp; On-Demand Content</strong></h6>
-                      </div>
-                      <p class="paragraph-12">Learn from industry leading entrepreneurs, educators, and commentators
-                        from anywhere, anytime.</p>
-                    </div>
-                    <div class="layout12_item">
-                      <div class="margin-bottom margin-xsmall">
-                        <div class="icon-embed-medium-2 w-embed"><svg xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-                            class="iconify iconify--iconoir" width="100%" height="100%"
-                            preserveaspectratio="xMidYMid meet" viewbox="0 0 24 24">
-                            <g fill="none" stroke="currentColor" stroke-width="1.5">
-                              <path d="M19 20H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2Z"></path>
-                              <path fill="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                d="M16.5 14a.5.5 0 1 1 0-1a.5.5 0 0 1 0 1Z"></path>
-                              <path d="M18 7V5.603a2 2 0 0 0-2.515-1.932l-11 2.933A2 2 0 0 0 3 8.537V9"></path>
-                            </g>
-                          </svg></div>
-                      </div>
-                      <div class="margin-bottom margin-xsmall">
-                        <h6 class="heading-12"><strong>Web3 Login</strong></h6>
-                      </div>
-                      <p class="paragraph-13">Connect a digital wallet to access the app and start watching videos right
-                        away. No email address or personal information required.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="layout12_image-wrapper"><img src="images/annie-spratt-QckxruozjRg-unsplash.jpg"
-                    loading="lazy" sizes="(max-width: 991px) 90vw, (max-width: 1439px) 55vw, 794.1875px"
-                    srcset="images/annie-spratt-QckxruozjRg-unsplash-p-500.jpg 500w, images/annie-spratt-QckxruozjRg-unsplash-p-800.jpg 800w, images/annie-spratt-QckxruozjRg-unsplash-p-1080.jpg 1080w, images/annie-spratt-QckxruozjRg-unsplash-p-1600.jpg 1600w, images/annie-spratt-QckxruozjRg-unsplash-p-2000.jpg 2000w, images/annie-spratt-QckxruozjRg-unsplash.jpg 2400w"
-                    alt="" class="image-6"></div>
               </div>
             </div>
           </div>
@@ -657,7 +848,7 @@ a,
               <div class="padding-bottom padding-xxlarge">
                 <div class="w-layout-grid footer4_top-wrapper">
                   <a href="#" id="w-node-a69b64b2-a692-a9e3-8f7f-e4382361dc5e-64bf1861"
-                    class="footer4_logo-link w-nav-brand"><img src="images/Logo.svg" loading="lazy" alt=""></a>
+                    class="footer4_logo-link w-nav-brand"><img src="images/1stclasslogo.png" loading="lazy" alt=""></a>
                   <div class="w-layout-grid footer7_link-list">
                     <a href="#" class="footer7_link">Features</a>
                     <a href="#support" class="footer7_link">Support</a>
@@ -707,7 +898,7 @@ a,
               <div class="padding-top padding-medium">
                 <div class="w-layout-grid footer4_bottom-wrapper">
                   <div id="w-node-a69b64b2-a692-a9e3-8f7f-e4382361dc79-64bf1861" class="footer4_credit-text">© 2022
-                    First Class. All right reserved.</div>
+                    1st Class. All right reserved.</div>
                   <a href="#" class="footer4_legal-link">Privacy Policy</a>
                   <a href="#" class="footer4_legal-link">Terms of Service</a>
                   <a href="#" class="footer4_legal-link">Cookies Settings</a>

@@ -1904,6 +1904,18 @@ figcaption {
   text-align: center;
 }
 
+.button2 {
+  padding: 1rem 1.5rem;
+  border-style: none;
+  border-width: 1px;
+  border-color: #000;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #697cfd;
+  font-weight: 600;
+  text-align: center;
+}
+
 .button.is-link {
   padding: 0.25rem 0rem;
   border-style: none;
@@ -8674,6 +8686,7 @@ figcaption {
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Inter';
   src: url('../fonts/Inter-Bold.ttf') format('truetype'), url('../fonts/Inter-ExtraBold.ttf') format('truetype');
@@ -8681,6 +8694,7 @@ figcaption {
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Inter';
   src: url('../fonts/Inter-ExtraLight.ttf') format('truetype');
@@ -8688,6 +8702,7 @@ figcaption {
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Inter';
   src: url('../fonts/Inter-Black.ttf') format('truetype');
@@ -8695,6 +8710,7 @@ figcaption {
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Inter';
   src: url('../fonts/Inter-Light.ttf') format('truetype');
@@ -8702,6 +8718,7 @@ figcaption {
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Inter';
   src: url('../fonts/Inter-Regular.ttf') format('truetype');
@@ -8709,6 +8726,7 @@ figcaption {
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Inter';
   src: url('../fonts/Inter-Thin.ttf') format('truetype');
@@ -8716,10 +8734,24 @@ figcaption {
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Inter';
   src: url('../fonts/Inter-SemiBold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  z-index: 1;
 }
