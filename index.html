@@ -345,6 +345,142 @@ a,
           }
         }
 
+        .container {
+          margin-left: 1rem;
+          margin-right: 1rem;
+        }
+
+        .modal2 {
+          display: grid;
+          place-items: center;
+        }
+
+        .modal2__button {
+          display: inline-block;
+          background-color: #697CFD;
+          color: #FFF;
+          padding: 1rem 1.25rem;
+          border-radius: .5rem;
+          transition: .3s;
+        }
+
+        .modal2__button:hover {
+          background-color: #697dfda2;
+        }
+
+        .modal2__container {
+          position: fixed;
+          top: 0;
+          left: 0;
+          background-color: #697dfda2;
+          width: 100%;
+          height: 100%;
+          display: grid;
+          align-items: flex-end;
+          overflow: hidden;
+          transition: all .3s;
+          z-index: var(--z-modal2);
+          visibility: hidden;
+          opacity: 0;
+
+          /*=== Effect 3 ===*/
+          perspective: 1000px;
+        }
+
+        .modal2__content {
+          position: relative;
+          background-color: #191A1D;
+          text-align: center;
+          padding: 3rem 2rem 2rem;
+          border-radius: 1rem 1rem 0 0;
+          transition: all .3s;
+
+          /*=== Effect 1 ===*/
+          transform: translateY(10%);
+
+          /*=== Effect 2 ===*/
+          transform: scale(.5) translateY(10%);
+
+          /*=== Effect 3 ===*/
+          transform: rotateX(65deg) scale(.75) translateY(10%);
+          transform-origin: 50% 100%;
+        }
+
+        .modal2__img {
+          width: 150px;
+          margin-bottom: .75rem;
+        }
+
+        .modal2__close {
+          display: inline-flex;
+          background-color: var(--first-color);
+          border-radius: .25rem;
+          color: #FFF;
+          font-size: 1.5rem;
+          position: absolute;
+          top: 2rem;
+          right: 2rem;
+          cursor: pointer;
+        }
+
+        .modal2__title {
+          font-size: var(--big-font-size);
+          color: var(--title-color);
+          font-weight: 600;
+          color: #FFF;
+        }
+
+        .modal2__description {
+          margin-bottom: 1.5rem;
+          padding-left: 10%;
+          padding-right: 10%;
+          font-size: large;
+          color: #FFF;
+        }
+
+        .modal2__button-width {
+          width: 90%;
+        }
+
+        .modal2__button-link {
+          display: block;
+          margin: 1rem auto 0;
+          background-color: transparent;
+          color: #FFF;
+          font-weight: 500;
+        }
+
+        /* Show modal2 */
+        .show-modal2 {
+          visibility: visible;
+          opacity: 1;
+        }
+
+        .show-modal2 .modal2__content {
+          /*=== Effect 1 ===*/
+          transform: translateY(0);
+
+          /*=== Effect 2 ===*/
+          /* transform: scale(1) translateY(0); */
+
+          /*=== Effect 3 ===*/
+          /* transform: rotateX(0) scale(1) translateY(0); */
+        }
+
+        /*=============== BREAKPOINTS ===============*/
+        /* For small devices */
+        @media screen and (min-width: 576px) {
+          .modal2__content {
+            margin: auto;
+            width: 380px;
+            border-radius: 1.25rem;
+          }
+
+          .modal2__img {
+            width: 170px;
+          }
+        }
+
         @media screen and (max-width: 991px) {
 
           .hide,
@@ -451,7 +587,7 @@ a,
       fs-scrolldisable-element="smart-nav" data-easing="ease" data-collapse="medium"
       data-w-id="7f0ddedb-2379-69ab-a2ee-38ad5bb3c2e4" role="banner" data-duration="400" id="nav">
       <div class="navbar2_container">
-        <a href="#nav" class="navbar2_logo-link w-nav-brand"><img src="images/1stclass.svg" loading="lazy" width="60"
+        <a href="#nav" class="navbar2_logo-link w-nav-brand"><img src="images/1stclass.svg" loading="lazy" width="65"
             alt="" class="navbar2_logo"></a>
         <nav role="navigation" id="w-node-_7f0ddedb-2379-69ab-a2ee-38ad5bb3c2e8-64bf1861"
           class="navbar2_menu is-page-height-tablet w-nav-menu">
@@ -465,9 +601,39 @@ a,
         </nav>
         <div id="w-node-_7f0ddedb-2379-69ab-a2ee-38ad5bb3c2fb-64bf1861" class="navbar2_button-wrapper">
           <div class="button-group">
-            <a href="https://twitter.com/1stclasslabs/" target="_blank" class="button is-icon w-inline-block">
-              <div>Launch App</div>
-            </a>
+
+            <body>
+              <section class="modal2 container">
+                <button class="modal2__button" id="open-modal2">
+                  Launch App
+                </button>
+
+                <div class="modal2__container" id="modal2-container">
+                  <div class="modal2__content">
+                    <div class="modal2__close close-modal2" title="Close">
+                      <i class="bx bx-x"></i>
+                    </div>
+
+                    <img src="assets/img/star-trophy.png" alt="" class="modal2__img" />
+
+                    <h1 class="modal2__title">Coming soon!!</h1>
+                    <p class="modal2__description">Follow us on Twitter for updates!</p>
+
+                    <a href="http://www.twitter.com/1stclasslabs/" target="_blank">
+                      <button class="modal2__button modal2__button-width">Follow</button>
+                    </a>
+
+                    <button class="modal2__button-link close-modal2">
+                      Back
+                    </button>
+                  </div>
+                </div>
+              </section>
+
+              <!--=============== MAIN JS ===============-->
+
+              <script src="js/launchapp.js"></script>
+            </body>
           </div>
           <div class="navbar2_menu-button w-nav-button">
             <div class="menu-icon2">
@@ -567,24 +733,11 @@ a,
                     subscribing to their community. In return, you can unlock premium content, direct access to the
                     creator, and other special benefits.</p>
 
-                  <head>
-                    <meta charset="UTF-8" />
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-                    <!--=============== BOXICONS ===============-->
-                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
-
-                    <!--=============== CSS ===============-->
-                    <link rel="stylesheet" href="assets/css/styles.css" />
-
-                    <title>Responsive Modal Popup</title>
-                  </head>
-
                   <body>
-                    <section class="modal container">
-                      <button class="modal__button" id="open-modal">
-                        View All Creators
-                      </button>
+                    <div class="button-group is-center">
+                      <a href="https://twitter.com/1stclasslabs/" target="_blank"
+                        class="button is-alternate w-button">Apply Now</a>
+                    </div>
 
                       <div class="modal__container" id="modal-container">
                         <div class="modal__content">
@@ -848,7 +1001,8 @@ a,
               <div class="padding-bottom padding-xxlarge">
                 <div class="w-layout-grid footer4_top-wrapper">
                   <a href="#" id="w-node-a69b64b2-a692-a9e3-8f7f-e4382361dc5e-64bf1861"
-                    class="footer4_logo-link w-nav-brand"><img src="images/1stclasslogo.png" loading="lazy" alt=""></a>
+                    class="footer4_logo-link w-nav-brand"><img src="images/1stclasswhite.svg" loading="lazy" width="65"
+                      alt=""></a>
                   <div class="w-layout-grid footer7_link-list">
                     <a href="#" class="footer7_link">Features</a>
                     <a href="#support" class="footer7_link">Support</a>
