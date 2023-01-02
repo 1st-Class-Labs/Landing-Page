@@ -350,12 +350,12 @@ a,
           margin-right: 1rem;
         }
 
-        .modal2 {
+        .modal {
           display: grid;
           place-items: center;
         }
 
-        .modal2__button {
+        .modal__button {
           display: inline-block;
           background-color: #697CFD;
           color: #FFF;
@@ -364,11 +364,11 @@ a,
           transition: .3s;
         }
 
-        .modal2__button:hover {
+        .modal__button:hover {
           background-color: #697dfda2;
         }
 
-        .modal2__container {
+        .modal__container {
           position: fixed;
           top: 0;
           left: 0;
@@ -379,7 +379,7 @@ a,
           align-items: flex-end;
           overflow: hidden;
           transition: all .3s;
-          z-index: var(--z-modal2);
+          z-index: var(--z-modal);
           visibility: hidden;
           opacity: 0;
 
@@ -387,7 +387,7 @@ a,
           perspective: 1000px;
         }
 
-        .modal2__content {
+        .modal__content {
           position: relative;
           background-color: #191A1D;
           text-align: center;
@@ -406,12 +406,12 @@ a,
           transform-origin: 50% 100%;
         }
 
-        .modal2__img {
+        .modal__img {
           width: 150px;
           margin-bottom: .75rem;
         }
 
-        .modal2__close {
+        .modal__close {
           display: inline-flex;
           background-color: var(--first-color);
           border-radius: .25rem;
@@ -423,14 +423,14 @@ a,
           cursor: pointer;
         }
 
-        .modal2__title {
+        .modal__title {
           font-size: var(--big-font-size);
           color: var(--title-color);
           font-weight: 600;
           color: #FFF;
         }
 
-        .modal2__description {
+        .modal__description {
           margin-bottom: 1.5rem;
           padding-left: 10%;
           padding-right: 10%;
@@ -438,11 +438,11 @@ a,
           color: #FFF;
         }
 
-        .modal2__button-width {
+        .modal__button-width {
           width: 90%;
         }
 
-        .modal2__button-link {
+        .modal__button-link {
           display: block;
           margin: 1rem auto 0;
           background-color: transparent;
@@ -450,13 +450,13 @@ a,
           font-weight: 500;
         }
 
-        /* Show modal2 */
-        .show-modal2 {
+        /* Show modal */
+        .show-modal {
           visibility: visible;
           opacity: 1;
         }
 
-        .show-modal2 .modal2__content {
+        .show-modal .modal__content {
           /*=== Effect 1 ===*/
           transform: translateY(0);
 
@@ -470,7 +470,276 @@ a,
         /*=============== BREAKPOINTS ===============*/
         /* For small devices */
         @media screen and (min-width: 576px) {
-          .modal2__content {
+          .modal__content {
+            margin: auto;
+            width: 380px;
+            border-radius: 1.25rem;
+          }
+
+          .modal__img {
+            width: 170px;
+          }
+        }
+
+        .modal {
+          display: grid;
+          place-items: center;
+        }
+
+        .modal__button {
+          display: inline-block;
+          background-color: #697CFD;
+          color: #FFF;
+          padding: 1rem 1.25rem;
+          border-radius: .5rem;
+          transition: .3s;
+        }
+
+        .modal__button:hover {
+          background-color: #697dfda2;
+        }
+
+        .modal__container {
+          position: fixed;
+          top: 0;
+          left: 0;
+          background-color: #697dfda2;
+          width: 100%;
+          height: 100%;
+          display: grid;
+          align-items: flex-end;
+          overflow: hidden;
+          transition: all .3s;
+          z-index: var(--z-modal);
+          visibility: hidden;
+          opacity: 0;
+
+          /*=== Effect 3 ===*/
+          perspective: 1000px;
+        }
+
+        .modal__content {
+          position: relative;
+          background-color: #191A1D;
+          text-align: center;
+          padding: 3rem 2rem 2rem;
+          border-radius: 1rem 1rem 0 0;
+          transition: all .3s;
+
+          /*=== Effect 1 ===*/
+          transform: translateY(10%);
+
+          /*=== Effect 2 ===*/
+          transform: scale(.5) translateY(10%);
+
+          /*=== Effect 3 ===*/
+          transform: rotateX(65deg) scale(.75) translateY(10%);
+          transform-origin: 50% 100%;
+        }
+
+        .modal__img {
+          width: 150px;
+          margin-bottom: .75rem;
+        }
+
+        .modal__close {
+          display: inline-flex;
+          background-color: var(--first-color);
+          border-radius: .25rem;
+          color: #FFF;
+          font-size: 1.5rem;
+          position: absolute;
+          top: 2rem;
+          right: 2rem;
+          cursor: pointer;
+        }
+
+        .modal__title {
+          font-size: var(--big-font-size);
+          color: var(--title-color);
+          font-weight: 600;
+          color: #FFF;
+        }
+
+        .modal__description {
+          margin-bottom: 1.5rem;
+          padding-left: 10%;
+          padding-right: 10%;
+          font-size: large;
+          color: #FFF;
+        }
+
+        .modal__button-width {
+          width: 90%;
+        }
+
+        .modal__button-link {
+          display: block;
+          margin: 1rem auto 0;
+          background-color: transparent;
+          color: #FFF;
+          font-weight: 500;
+        }
+
+        /* Show modal */
+        .show-modal {
+          visibility: visible;
+          opacity: 1;
+        }
+
+        .show-modal .modal__content {
+          /*=== Effect 1 ===*/
+          transform: translateY(0);
+
+          /*=== Effect 2 ===*/
+          /* transform: scale(1) translateY(0); */
+
+          /*=== Effect 3 ===*/
+          /* transform: rotateX(0) scale(1) translateY(0); */
+        }
+
+        /*=============== BREAKPOINTS ===============*/
+        /* For small devices */
+        @media screen and (min-width: 576px) {
+          .modal__content {
+            margin: auto;
+            width: 380px;
+            border-radius: 1.25rem;
+          }
+
+          .modal__img {
+            width: 170px;
+          }
+        }
+
+        /*===== Modal2 =====*/
+
+        .container {
+          margin-left: 1rem;
+          margin-right: 1rem;
+        }
+
+        .modal2 {
+          display: grid;
+          place-items: center;
+        }
+
+        .modal__button2 {
+          display: inline-block;
+          background-color: #697CFD;
+          color: #FFF;
+          padding: 1rem 1.25rem;
+          border-radius: .5rem;
+          transition: .3s;
+        }
+
+        .modal__button2:hover {
+          background-color: #697dfda2;
+        }
+
+        .modal__container2 {
+          position: fixed;
+          top: 0;
+          left: 0;
+          background-color: #697dfda2;
+          width: 100%;
+          height: 100%;
+          display: grid;
+          align-items: flex-end;
+          overflow: hidden;
+          transition: all .3s;
+          z-index: var(--z-modal);
+          visibility: hidden;
+          opacity: 0;
+
+          /*=== Effect 3 ===*/
+          perspective: 1000px;
+        }
+
+        .modal__content2 {
+          position: relative;
+          background-color: #191A1D;
+          text-align: center;
+          padding: 3rem 2rem 2rem;
+          border-radius: 1rem 1rem 0 0;
+          transition: all .3s;
+
+          /*=== Effect 1 ===*/
+          transform: translateY(10%);
+
+          /*=== Effect 2 ===*/
+          transform: scale(.5) translateY(10%);
+
+          /*=== Effect 3 ===*/
+          transform: rotateX(65deg) scale(.75) translateY(10%);
+          transform-origin: 50% 100%;
+        }
+
+        .modal__img2 {
+          width: 150px;
+          margin-bottom: .75rem;
+        }
+
+        .modal__close2 {
+          display: inline-flex;
+          background-color: var(--first-color);
+          border-radius: .25rem;
+          color: #FFF;
+          font-size: 1.5rem;
+          position: absolute;
+          top: 2rem;
+          right: 2rem;
+          cursor: pointer;
+        }
+
+        .modal__title2 {
+          font-size: var(--big-font-size);
+          color: var(--title-color);
+          font-weight: 600;
+          color: #FFF;
+        }
+
+        .modal__description2 {
+          margin-bottom: 1.5rem;
+          padding-left: 10%;
+          padding-right: 10%;
+          font-size: large;
+          color: #FFF;
+        }
+
+        .modal__button2-width {
+          width: 90%;
+        }
+
+        .modal__button2-link {
+          display: block;
+          margin: 1rem auto 0;
+          background-color: transparent;
+          color: #FFF;
+          font-weight: 500;
+        }
+
+        /* Show modal */
+        .show-modal2 {
+          visibility: visible;
+          opacity: 1;
+        }
+
+        .show-modal2 .modal__content2 {
+          /*=== Effect 1 ===*/
+          transform: translateY(0);
+
+          /*=== Effect 2 ===*/
+          /* transform: scale(1) translateY(0); */
+
+          /*=== Effect 3 ===*/
+          /* transform: rotateX(0) scale(1) translateY(0); */
+        }
+
+        /*=============== BREAKPOINTS ===============*/
+        /* For small devices */
+        @media screen and (min-width: 576px) {
+          .modal__content2 {
             margin: auto;
             width: 380px;
             border-radius: 1.25rem;
@@ -603,27 +872,27 @@ a,
           <div class="button-group">
 
             <body>
-              <section class="modal2 container">
-                <button class="modal2__button" id="open-modal2">
+              <section class="modal container">
+                <button class="modal__button" id="open-modal">
                   Launch App
                 </button>
 
-                <div class="modal2__container" id="modal2-container">
-                  <div class="modal2__content">
-                    <div class="modal2__close close-modal2" title="Close">
+                <div class="modal__container" id="modal-container">
+                  <div class="modal__content">
+                    <div class="modal__close close-modal" title="Close">
                       <i class="bx bx-x"></i>
                     </div>
 
-                    <img src="assets/img/star-trophy.png" alt="" class="modal2__img" />
+                    <img src="assets/img/star-trophy.png" alt="" class="modal__img" />
 
-                    <h1 class="modal2__title">Coming soon!!</h1>
-                    <p class="modal2__description">Follow us on Twitter for updates!</p>
+                    <h1 class="modal__title">Coming soon!!</h1>
+                    <p class="modal__description">Follow us on Twitter for updates!</p>
 
                     <a href="http://www.twitter.com/1stclasslabs/" target="_blank">
-                      <button class="modal2__button modal2__button-width">Follow</button>
+                      <button class="modal__button modal__button-width">Follow</button>
                     </a>
 
-                    <button class="modal2__button-link close-modal2">
+                    <button class="modal__button-link close-modal">
                       Back
                     </button>
                   </div>
@@ -632,7 +901,7 @@ a,
 
               <!--=============== MAIN JS ===============-->
 
-              <script src="js/launchapp.js"></script>
+              <script src="js/main.js"></script>
             </body>
           </div>
           <div class="navbar2_menu-button w-nav-button">
@@ -732,39 +1001,6 @@ a,
                   <p class="text-size-medium">Show your favorite creator how much you appreciate their content by
                     subscribing to their community. In return, you can unlock premium content, direct access to the
                     creator, and other special benefits.</p>
-
-                  <body>
-                    <div class="button-group is-center">
-                      <a href="https://twitter.com/1stclasslabs/" target="_blank"
-                        class="button is-alternate w-button">Apply Now</a>
-                    </div>
-
-                      <div class="modal__container" id="modal-container">
-                        <div class="modal__content">
-                          <div class="modal__close close-modal" title="Close">
-                            <i class="bx bx-x"></i>
-                          </div>
-
-                          <img src="assets/img/star-trophy.png" alt="" class="modal__img" />
-
-                          <h1 class="modal__title">Coming soon!!</h1>
-                          <p class="modal__description">Follow us on Twitter for updates!</p>
-
-                          <a href="http://www.twitter.com/1stclasslabs/" target="_blank">
-                            <button class="modal__button modal__button-width">Follow</button>
-                          </a>
-
-                          <button class="modal__button-link close-modal">
-                            Back
-                          </button>
-                        </div>
-                      </div>
-                    </section>
-
-                    <!--=============== MAIN JS ===============-->
-
-                    <script src="js/main.js"></script>
-                  </body>
                 </div>
               </div>
             </div>
@@ -857,34 +1093,7 @@ a,
           </div>
         </div>
       </section>
-      <section id="cta" class="section_cta">
-        <div class="padding-global-3">
-          <div class="container-large">
-            <div class="padding-section-large">
-              <div class="w-layout-grid cta_component">
-                <div class="cta_card">
-                  <div class="text-align-center">
-                    <div class="max-width-large">
-                      <div class="margin-bottom margin-small">
-                        <h2 class="heading-7"><strong>Are You A Creator?</strong></h2>
-                      </div>
-                      <p class="text-size-medium">1st Class features hand-picked industry experts and community leaders
-                        who educate and inform while entertaining and engaging. Think you have what it takes to become a
-                        1st Class Creator?</p>
-                    </div>
-                  </div>
-                  <div class="margin-top margin-medium">
-                    <div class="button-group is-center">
-                      <a href="https://twitter.com/1stclasslabs/" target="_blank"
-                        class="button is-alternate w-button">Apply Now</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
       <section id="faq" class="section_faq background-color-white">
         <div class="padding-global">
           <div class="container-large">
